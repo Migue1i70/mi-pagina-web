@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro de Usuarios</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:yellow;
+    padding:40px;
+}
+
+h1{
+    color:#333;
+}
+
+input{
+    padding:8px;
+    margin:5px;
+}
+
+button{
+    padding:10px;
+    background:#007BFF;
+    color:white;
+    border:none;
+}
+
+table{
+    margin-top:20px;
+    border-collapse:collapse;
+    width:400px;
+}
+
+th, td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:left;
+}
+
+th{
+    background:#007BFF;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ingreso de Simones LSBcorp</h1>
+
+<input type="text" id="nombre" placeholder="Nombre usuario">
+<input type="number" id="edad" placeholder="Edad">
+
+<button onclick="agregarUsuario()">Agregar Usuario</button>
+
+<h2>Lista de Simones LSBcorp</h2>
+
+<table id="tablaUsuarios">
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Edad</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<script>
+
+let usuarios = []
+
+function agregarUsuario(){
+
+    let nombre = document.getElementById("nombre").value
+    let edad = document.getElementById("edad").value
+
+    if(nombre === "" || edad === ""){
+        alert("Debe ingresar todos los datos")
+        return
+    }
+
+    let usuario = {
+        nombre: nombre,
+        edad: edad
+    }
+
+    usuarios.push(usuario)
+
+    mostrarUsuarios()
+
+    document.getElementById("nombre").value=""
+    document.getElementById("edad").value=""
+}
+
+function mostrarUsuarios(){
+
+    let tabla = document.querySelector("#tablaUsuarios tbody")
+    tabla.innerHTML=""
+
+    usuarios.forEach(u => {
+
+        let fila = `
+        <tr>
+            <td>${u.nombre}</td>
+            <td>${u.edad}</td>
+        </tr>
+        `
+
+        tabla.innerHTML += fila
+
+    })
+
+}
+
+</script>
+
+</body>
+</html>
