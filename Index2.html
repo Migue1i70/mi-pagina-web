@@ -10,7 +10,7 @@
     h1{margin-top:0}
     .row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
     input[type="text"], input[type="number"]{flex:1;padding:8px;border:1px solid #ccd;border-radius:4px}
-    button{padding:8px 12px;border:none;border-radius:4px;background:#007BFF;color:white;cursor:pointer}
+    button{padding:8px 12px;border:none;border-radius:4px;background:yellow;color:white;cursor:pointer}
     button.secondary{background:#6c757d}
     button.danger{background:#dc3545}
     table{width:100%;border-collapse:collapse;margin-top:12px}
@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Registro de Usuarios</h1>
+  <h1>Registro de Simones</h1>
 
   <div class="row">
     <input type="text" id="nombre" placeholder="Nombre usuario">
@@ -36,7 +36,7 @@
     <input type="text" id="filtro" placeholder="Filtrar por nombre" style="width:60%;padding:6px;border:1px solid #ccd;border-radius:4px">
   </div>
 
-  <h2>Lista de Usuarios <small id="contador"></small></h2>
+  <h2>Lista de Simones <small id="contador"></small></h2>
   <table id="tablaUsuarios" aria-live="polite">
     <thead>
       <tr><th>Nombre</th><th>Edad</th><th>Acciones</th></tr>
@@ -101,14 +101,14 @@
   }
 
   function eliminarUsuario(id){
-    if(!confirm('Eliminar este usuario?')) return;
+    if(!confirm('Eliminar este Simon?')) return;
     const usuarios = cargarUsuarios().filter(u => u.id !== id);
     guardarUsuarios(usuarios);
     mostrarUsuarios();
   }
 
   function borrarTodo(){
-    if(!confirm('Borrar todos los usuarios?')) return;
+    if(!confirm('Borrar todos los Simones?')) return;
     localStorage.removeItem(STORAGE_KEY);
     mostrarUsuarios();
   }
@@ -158,3 +158,4 @@
 </script>
 </body>
 </html>
+
